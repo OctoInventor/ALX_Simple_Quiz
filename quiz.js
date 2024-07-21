@@ -1,15 +1,21 @@
+// Define the checkAnswer function
 function checkAnswer() {
-    let correctAnswer = 4;
-    let userAnswer = 
-    document.querySelector('input[name="quiz"]:checked');
-    let submitButton = document.getElementById('submit-answer');
-    console.log('Checking the answer')
+   
+    const correctAnswer = "4";
+
+    
+    const selectedRadioButton = document.querySelector('input[name="quiz"]:checked');
+    const userAnswer = selectedRadioButton ? selectedRadioButton.value : null;
+
+    
+    const feedbackElement = document.getElementById('feedback');
+    if (userAnswer === correctAnswer) {
+        feedbackElement.textContent = "Correct! Well done.";
+    } else {
+        feedbackElement.textContent = "That's incorrect. Try again!";
+    }
 }
 
-if (userAnswer == correctAnswer) {
-    console.log("Correct! Well done");
-} else {
-    console.log("That's incorrect. Try again!");
-}
 
+const submitButton = document.getElementById('submit-answer');
 submitButton.addEventListener('click', checkAnswer);
